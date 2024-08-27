@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmua3382xhtn0"]
+[gd_scene load_steps=3 format=3 uid="uid://cmua3382xhtn0"]
 
 [ext_resource type="Script" path="res://SaveLoad.gd" id="1_e40fe"]
+[ext_resource type="Script" path="res://line_edit.gd" id="2_q4pmk"]
 
 [node name="SaveLoad" type="Control"]
 layout_mode = 3
@@ -13,6 +14,7 @@ script = ExtResource("1_e40fe")
 layout_mode = 0
 offset_right = 67.0625
 offset_bottom = 31.0
+script = ExtResource("2_q4pmk")
 
 [node name="SpinBox" type="SpinBox" parent="."]
 layout_mode = 0

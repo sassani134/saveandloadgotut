@@ -1,26 +1,17 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_save_pressed() -> void:
-	pass # Replace with function body.
+	_save()
+	$LineEdit.clear()
+	$SpinBox.value = 0
 
 
 func _on_load_pressed() -> void:
-	pass # Replace with function body.
-
+	_load()
 
 func _on_delete_pressed() -> void:
-	pass # Replace with function body.
+	DirAccess.remove_absolute("saveFile")
+	print("GAME DELETED")
 
 func _save() -> void:
 	var save_file = FileAccess.open("saveFile", FileAccess.WRITE)
