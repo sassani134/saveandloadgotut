@@ -10,7 +10,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_e40fe")
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="." groups=["SaveLoad"]]
 layout_mode = 0
 offset_right = 67.0625
 offset_bottom = 31.0
