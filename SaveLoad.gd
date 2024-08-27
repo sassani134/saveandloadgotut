@@ -35,3 +35,30 @@ func _save() -> void:
 		
 		# call the node's save function.
 		var node_data = node.call("saveObject")
+		
+		# Store the save dictionary as a new line in the save file.
+		save_file.store_line(JSON.stringify(node_data))
+		
+	save_file.close()
+	print("GAME SAVED")
+
+func _load() -> void:
+	# Check if the SaveFile exists
+	if !FileAccess.file_exists("saveFile"):
+		print("Error, no Save File to load.")
+		return
+	
+	var save_file = FileAccess.open("saveFile", FileAccess.READ)
+	
+	while save_file.get_position() < save_file.get_length():
+		# Get the saved dictionary from the next line in the save file
+		var json = JSON.new()
+		json.parse(save_file.get_line())
+		
+		# Get the Data
+		var node_data = json.get_data()
+		if has_node(node_data["filepath"]):
+			get_node(node_data["filepath"]).loadObject(node_data)
+	
+	save_file.close()
+	print("GAME LOADED")
